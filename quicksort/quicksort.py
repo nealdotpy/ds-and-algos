@@ -1,9 +1,10 @@
 import typing as t
-
+from random import randint
 
 class Array:
 
     def __init__(self, data: t.List[int]):
+        self.unsorted = data
         self.res = data
         self.length = len(data)
 
@@ -61,14 +62,22 @@ class Array:
         return f'{self.res}'
 
 
+class T:
+    NUM_RANGE = 1001
+    NUM_COUNT = 300
+
+
 if __name__ == "__main__":
 
-    A = Array([5, 3, 2, 0, 1, 25, 21, 18, 8])
-    D = Array([5, 3, 2, 0, 1, 3, 4, 5, 6, 11, 34, 20, 12])
-
-    test_cases = [A, D]
+    test_cases = [
+        Array([5, 3, 2, 0, 1, 25, 21, 18, 8]),
+        Array([5, 3, 2, 0, 1, 3, 4, 5, 6, 11, 34, 20, 12]),
+        Array([randint(0, T.NUM_RANGE) for i in range(T.NUM_COUNT)])
+    ]
 
     for case in test_cases:
-        print(f'unsorted: {case} ({case.length})')
+        print(f'unsorted ({case.length}):\n{case}')
         case.sort()
-        print(f'sorted: {case}')
+        case.unsorted.sort() # timsort -> verifies the sorted status
+        equiv = case.res == case.unsorted
+        print(f'sorted [{equiv}]:\n{case}')
