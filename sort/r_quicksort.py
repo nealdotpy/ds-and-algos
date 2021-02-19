@@ -18,8 +18,8 @@ class Array:
 
         if lo < hi:
             pivot_index = self.partition_pythonic(lo, hi)
-            self.quicksort(lo, pivot_index)
-            self.quicksort(pivot_index + 1, hi)
+            self.r_quicksort(lo, pivot_index)
+            self.r_quicksort(pivot_index + 1, hi)
 
         return True
 
