@@ -45,6 +45,8 @@ class Array:
         return j
 
     def partition_pythonic(self, lo: int, hi: int) -> int:
+        rand_idx = randint(lo, hi - 1)
+        self.res[lo], self.res[rand_idx] = self.res[rand_idx], self.res[lo]
         pivot = self.res[lo]
         i, j = lo, hi
         while i < j:
@@ -77,9 +79,10 @@ if __name__ == "__main__":
         Array([randint(0, T.NUM_RANGE) for i in range(T.NUM_COUNT)])
     ]
 
-    for case in test_cases:
-        print(f'unsorted ({case.length}):\n{case}')
+    for i, case in enumerate(test_cases):
+        print(f'sorting case{i}[{case.length}]...')
         case.sort()
-        case.unsorted.sort() # timsort -> verifies the sorted status
-        equiv = case.res == case.unsorted
-        print(f'sorted [{equiv}]:\n{case}')
+        #case.unsorted.sort() # timsort -> verifies the sorted status
+        equiv = case.res == sorted(case.unsorted)
+        print(f'{"SUCCESS" if equiv else "FAILURE"} case{i}[{case.length}].')
+       
