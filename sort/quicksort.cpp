@@ -45,10 +45,6 @@ void quicksort(std::vector<int>* array, int lo, int hi) {
 	}
 }
 
-// void test(std::vector<int>* vec) {
-// 	(*vec)[0] = -1;
-// }
-
 int main() {
 
 	std::vector<std::vector<int>> testCases {
@@ -56,10 +52,6 @@ int main() {
 		{2, 10, 20, 94, 28, 8, 34, 64, 31, 1},
 		{20, 94, 28, 8, 34, 64, 0, 2, 7, 49, 4, 7, 5, 2, 98}
 	};
-
-	// std::cout << testCases[0][0] << std::endl;
-	// test(&testCases[0]);
-	// std::cout << testCases[0][0] << std::endl;
 
 	for (auto tCase: testCases) {
 		std::cout << "sorting: ";
