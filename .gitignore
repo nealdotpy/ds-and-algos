@@ -1,2 +1,6 @@
 # virtual env
 ds-algo/
+
+# exe
+sort/quicksort
+sort/r_quicksort
